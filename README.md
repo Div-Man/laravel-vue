@@ -55,6 +55,7 @@ VueJS подключён с помощью CDN, **Фронтенд** собир�
 4. ```sudo chown -R www-data:www-data storage/framework/cache```
 5. ```sudo chown -R $USER:www-data storage```
 6. ```sudo chown -R $USER:www-data bootstrap/cache```
+7.  ```chmod -R 775 storage```
 
 ***
 Конфигурая Apache, которая использоватлась при разработке:
@@ -82,3 +83,12 @@ VueJS подключён с помощью CDN, **Фронтенд** собир�
 </VirtualHost>
 ```
 
+При отправке формы, в консоле по умолчанию, должно быть написано **Сохранение в базу**.
+
+Все роуты работают без перезагрузки, можно каждый роут открыть отдельно.
+
+[![imageup.ru](https://imageup.ru/img56/4340465/zad1.png)](https://imageup.ru/img56/4340465/zad1.png.html)
+
+[![imageup.ru](https://imageup.ru/img10/4340468/zad2.png)](https://imageup.ru/img10/4340468/zad2.png.html)
+
+[![imageup.ru](https://imageup.ru/img277/4340469/zad3.png)](https://imageup.ru/img277/4340469/zad3.png.html)
