@@ -21,4 +21,21 @@
 
 ***
 
+folder заменить на название папки
+
+git clone https://github.com/Div-Man/laravel-vue.git folder
+
+composer update 
+cp .env.example .env
+php artisan key:generate
+
+При необходимости, изменить доступ к папкам и файлам
+
+sudo chown -R www-data:www-data storage/logs
+sudo chown -R www-data:www-data storage/framework/sessions
+sudo chown -R www-data:www-data storage/framework
+sudo chown -R www-data:www-data storage/framework/cache
+sudo chown -R $USER:www-data storage
+sudo chown -R $USER:www-data bootstrap/cache
+
 
