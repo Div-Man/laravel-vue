@@ -21,21 +21,36 @@
 
 ***
 
-folder заменить на название папки
+Версия PHP 8.0+ так как метод ```match``` требует минимум 8 версию.
 
-git clone https://github.com/Div-Man/laravel-vue.git folder
+```
+final class StaticFactory
+{
+    public static function factory($data, $storage)
+    {
+        return match ($storage) {
+            'database' => new DatabaseHandler($data),
+            'email' => new EmailHandler($data)
+        };  
+    }
+}
+```
 
-composer update 
-cp .env.example .env
-php artisan key:generate
+**folder** заменить на название папки
 
-При необходимости, изменить доступ к папкам и файлам
+1. ```git clone https://github.com/Div-Man/laravel-vue.git folder```
 
-sudo chown -R www-data:www-data storage/logs
-sudo chown -R www-data:www-data storage/framework/sessions
-sudo chown -R www-data:www-data storage/framework
-sudo chown -R www-data:www-data storage/framework/cache
-sudo chown -R $USER:www-data storage
-sudo chown -R $USER:www-data bootstrap/cache
+2. ```composer update```
+3. ```cp .env.example .env```
+4. ```php artisan key:generate```
+
+При необходимости, если будет ошибка **Permission denied**, изменить доступ к папкам и файлам
+
+1. ```sudo chown -R www-data:www-data storage/logs```
+2. ```sudo chown -R www-data:www-data storage/framework/sessions```
+3. ```sudo chown -R www-data:www-data storage/framework```
+4. ```sudo chown -R www-data:www-data storage/framework/cache```
+5. ```sudo chown -R $USER:www-data storage```
+6. ```sudo chown -R $USER:www-data bootstrap/cache```
 
 
