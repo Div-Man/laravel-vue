@@ -20,10 +20,11 @@
 - Обязательно Vuejs, Vuex, Vue-Router
 
 ***
+#### Установка:
 
 Версия PHP 8.0+ так как метод ```match``` требует минимум 8 версию.
 
-```
+```php
 final class StaticFactory
 {
     public static function factory($data, $storage)
@@ -35,6 +36,8 @@ final class StaticFactory
     }
 }
 ```
+
+VueJS подключён с помощью CDN, **Фронтенд** собирать не нужно.
 
 **folder** заменить на название папки
 
@@ -53,4 +56,29 @@ final class StaticFactory
 5. ```sudo chown -R $USER:www-data storage```
 6. ```sudo chown -R $USER:www-data bootstrap/cache```
 
+***
+Конфигурая Apache, которая использоватлась при разработке:
+
+```
+<VirtualHost *:80>
+    ServerName localhost
+    DocumentRoot /var/www/laravel-vue/public
+    RewriteEngine On
+
+    <Directory /var/www/laravel-vue/public/>
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+
+        RewriteEngine On
+        RewriteBase /
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule . /index.html [L]
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
 
